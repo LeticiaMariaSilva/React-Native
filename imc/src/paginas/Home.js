@@ -14,12 +14,18 @@ const Home = () => {
   const [peso, setPeso] = useState("")
   const [resultado, setResultado] = useState(null)
   const [classificacao, setClassificacao] = useState("")
-  const [cor, setCor] = useState("#000")
+  const [cor, setCor] = useState("")
 
   const salvarHistorico = async (novoRegistro) => {
-    await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(novoRegistro))
-    console.log("Registro salvo com sucesso!")
-  }
+    try {
+      const json = await AsyncStorage.getItem(STORAGE_KEY);
+      const historicoAtual = json ? JSON.parse(json) : [];
+      const novoHistorico = [novoRegistro, ...historicoAtual];
+      await AsyncStorage.setItem(STORAGE_KEY, JSON.stringify(novoHistorico));
+    } catch (e) {
+      console.error("Erro ao salvar histórico:", e);
+    }
+  };
 
   const calcular = () => {
     const a = parseFloat(altura.replace(",", "."))
@@ -27,25 +33,30 @@ const Home = () => {
     const resultadoIMC = (p / (a * a)).toFixed(2)
     
 
+    let classificacaoAtual = ""
+    let corAtual = ""
     if (resultadoIMC < 18.5) {
-      setResultado("IMC: " + resultadoIMC); setClassificacao("Abaixo do peso"); setCor("azul")
+      setResultado("IMC: " + resultadoIMC); classificacaoAtual = "Abaixo do peso"; corAtual = "azul"
     }
     else if (resultadoIMC >= 18.5 && resultadoIMC <= 24.9) {
-      setResultado("IMC: " + resultadoIMC); setClassificacao("Peso normal"); setCor("verde")
+      setResultado("IMC: " + resultadoIMC); classificacaoAtual = "Peso normal"; corAtual = "verde"
     }
     else if (resultadoIMC >= 25 && resultadoIMC <= 29.9) {
-      setResultado("IMC: " + resultadoIMC); setClassificacao("Sobrepeso"); setCor("laranja")
+      setResultado("IMC: " + resultadoIMC); classificacaoAtual = "Sobrepeso"; corAtual = "laranja"
     }
     else if (resultadoIMC >= 30 && resultado <= 34.9) {
-      setResultado("IMC: " + resultadoIMC); setClassificacao("Obesidade"); setCor("vermelho")
+      setResultado("IMC: " + resultadoIMC); classificacaoAtual = "Obesidade"; corAtual = "vermelho"
     }
     else { 
       setResultado("Valor inválido")
     }
+      setClassificacao(classificacaoAtual)
+      setCor(corAtual)
+
       const dataHora = new Date().toLocaleString()
       const novoRegistro = {
         imc: resultadoIMC,
-        classificacao: classificacao,
+        classificacao: classificacaoAtual,
         dataHora: dataHora,
       }
       salvarHistorico(novoRegistro)

@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 20
     },
+    listaHistorico: {
+        marginVertical: 20,
+        marginHorizontal: 20,
+        
+    },
     texto:{
         color: "#aaa"
     },

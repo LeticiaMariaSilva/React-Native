@@ -7,3 +7,4 @@ const BotaoCalcular = ({funcao}) => (
 )
 
 export default BotaoCalcular;
+
