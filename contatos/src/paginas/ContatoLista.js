@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, FlatList, Button, Pressable } from "react-native";
 import { useIsFocused } from "@react-navigation/native";
-import api from "../servicos/Api";
+import {api} from "../servicos/Api";
 import estilos from "../componentes/Estilos";
 import ContatoItem from "../componentes/ContatoItem";
 import { TextInput } from "react-native-paper";

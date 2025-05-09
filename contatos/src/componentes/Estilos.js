@@ -79,7 +79,44 @@ const estilos = StyleSheet.create({
         marginBottom: 10,
         boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
        
-    },        
+    },
+    localizacao: {
+        fontSize: 17,
+        color: '#b3b3d8',
+        marginTop: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        
+    },
+    textTarefas: {
+        fontSize: 15,
+        fontWeight: 'condensed',
+        marginBottom: 5,
+    },
+    status: {
+        fontSize: 17,
+        fontWeight: 'condensed',
+        marginBottom: 5,
+    },
+    nomeResponsavel: {
+        fontSize: 20,
+        fontWeight: 'bold',
+        color: '#b3b3d8',
+        paddingBottom: 10,
+        paddingTop: 10,
+    },
+    span: {
+        fontSize: 16,
+        color: '#b3b3d8',
+        fontWeight: 'bold',
+    },
+    textTarefasConcluida: {
+        color: "#41B079",
+        fontSize: 17,
+        fontWeight: 'bold',
+        marginBottom: 5,
+    }
+
 })
 
 export default estilos;

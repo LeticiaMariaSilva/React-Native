@@ -8,7 +8,7 @@ import {
   Alert,
   Pressable,
 } from "react-native";
-import api from "../servicos/Api";
+import {api} from "../servicos/Api";
 import estilos from "../componentes/Estilos";
 import { Picker } from "@react-native-picker/picker";
 
