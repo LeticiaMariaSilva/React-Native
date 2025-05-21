@@ -6,6 +6,7 @@ const estilos = StyleSheet.create({
         padding: 16
     },
     button: {
+        marginTop: 10,
         backgroundColor: '#b3b3d8',
         paddingVertical: 12,
         borderRadius: 10,
@@ -62,12 +63,10 @@ const estilos = StyleSheet.create({
         marginBottom: 10
     },
     inputSexo: {
-        minWidth: 120,
         backgroundColor: '#ffffff',
         borderRadius: 10,
         marginBottom: 10,
         paddingHorizontal: 10,
-        paddingVertical: 12,
     },
     primeiralinha: {
         flexDirection: 'row',
@@ -110,13 +109,19 @@ const estilos = StyleSheet.create({
         color: '#b3b3d8',
         fontWeight: 'bold',
     },
-    textTarefasConcluida: {
-        color: "#41B079",
+    inputStatus:{
+        minWidth: 120,
+        backgroundColor: '#ffffff',
+        borderRadius: 10,
+        marginBottom: 10,
+        
+    },
+    textTarefasNova: {
+        color: "#FF7F50",
         fontSize: 17,
         fontWeight: 'bold',
         marginBottom: 5,
     }
-
 })
 
 export default estilos;
