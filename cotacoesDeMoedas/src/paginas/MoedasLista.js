@@ -6,7 +6,7 @@ import estilos from "../componentes/Estilos";
 import {api} from "../services/api";
 import MoedaItem from "../componentes/MoedasItem";
 
-export default function MoedasLista(){
+    export default function MoedasLista( {navigation} ){
     const [moedas, setMoedas] = useState([])
     const isFocused = useIsFocused()
 
@@ -27,10 +27,10 @@ export default function MoedasLista(){
         <View style={estilos.container}>
             <FlatList
                 data={moedas}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item.simbolo}
                 renderItem={({item}) => (
                     <MoedaItem
-                    item={item}
+                    item={item} navigation={navigation}
                 />
                 )}
             ></FlatList>

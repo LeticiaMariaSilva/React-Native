@@ -3,6 +3,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {Provider as PaperProvider} from 'react-native-paper';
 import {StatusBar} from 'react-native';
 import MoedasLista from './src/paginas/MoedasLista';
+import ObterCotacao from './src/paginas/ObterCotacao';
 
 const Stack = createNativeStackNavigator()
 
@@ -13,6 +14,7 @@ export default function App() {
       <NavigationContainer>
         <Stack.Navigator initialRouteName="MoedasLista">
           <Stack.Screen name="MoedasLista" component={MoedasLista} options={{ title: 'Lista de Moedas' }} />
+          <Stack.Screen name="ObterCotacao" component={ObterCotacao} options={{ title: 'Cotação' }} />
         </Stack.Navigator>
       </NavigationContainer>
     </PaperProvider>

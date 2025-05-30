@@ -18,6 +18,7 @@ export default function ContatoForm({ navigation, route }) {
   const [email, setEmail] = useState("");
   const [sexo, setSexo] = useState("");
   const [idade, setIdade] = useState("");
+  
   const itensContato = route.params?.item;
 
   useEffect(() => {
